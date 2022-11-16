@@ -5,7 +5,7 @@
 
 main() {
     char nomes[MAX][30], cpf[MAX][11];
-    char rua[MAX][50], cep[MAX][8];
+    char rua[MAX][50], cep[MAX][8], pesq[11];
     int opc, i, qtde = 0;
 
     do {
@@ -42,7 +42,17 @@ main() {
             break;
 
             case 3:
-                printf("Pesquisar\n");
+                printf("CPF a pesquisar: ");
+                __fpurge(stdin);
+                gets(pesq);
+                for (i=0; i<qtde; i++) {
+                    if (strcmp(cpf[i], pesq) == 0) {
+                        printf("Nome: %s\n", nomes[i]);
+                        printf("CPF: %s\n", cpf[i]);
+                        printf("Rua: %s\n", rua[i]);
+                        printf("CEP: %s\n\n", cep[i]);
+                    }
+                }
             break;
 
             case 4:
